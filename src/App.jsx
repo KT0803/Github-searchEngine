@@ -92,14 +92,7 @@ function App() {
       <Home />
 
       {/* ---- FOOTER ---- */}
-      <footer className="footer">
-        <p>
-          Built with React · Powered by the{' '}
-          <a href="https://docs.github.com/en/rest" target="_blank" rel="noopener noreferrer">
-            GitHub REST API
-          </a>
-        </p>
-      </footer>
+      <footer className="footer"></footer>
     </div>
   );
 }
