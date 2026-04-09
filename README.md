@@ -101,8 +101,3 @@ localStorage.setItem('gh_bookmarks', JSON.stringify(updated));
 - Unauthenticated requests: **60 per hour**
 - If you hit the limit, wait ~1 minute and try again
 
----
-
-## 📄 License
-
-MIT — free to use and modify.
