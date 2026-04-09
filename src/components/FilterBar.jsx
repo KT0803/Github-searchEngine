@@ -23,8 +23,8 @@ function FilterBar({ sortBy, onSortChange, filterLang, onLangChange, languages, 
         onChange={(e) => onSortChange(e.target.value)}
       >
         <option value="default">Recently Updated</option>
-        <option value="stars">⭐ Most Stars</option>
-        <option value="forks">🍴 Most Forks</option>
+        <option value="stars">Most Stars</option>
+        <option value="forks">Most Forks</option>
       </select>
 
       {/* Language filter dropdown — only shows if there are languages */}
