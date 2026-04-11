@@ -1,59 +1,35 @@
-// ============================================================
-// App.jsx — Root component
-//
-// Responsibilities:
-//   1. Manage dark/light mode state
-//   2. Apply the correct CSS class to <body> for theming
-//   3. Render the header (with theme toggle) and footer
-//   4. Render the Home page
-// ============================================================
 import React, { useState, useEffect } from 'react';
 import Home from './pages/Home';
 
 function App() {
-  // ---- STATE ----
-  // Dark mode is ON by default. We load preference from localStorage.
   const [darkMode, setDarkMode] = useState(() => {
-    // Read the saved preference. If nothing saved, default to true (dark).
     const saved = localStorage.getItem('gh_darkmode');
     return saved === null ? true : saved === 'true';
   });
 
-  // ================================================================
-  // EFFECT — Apply theme to <body> and save preference to localStorage
-  //
-  // Runs every time `darkMode` changes.
-  // We toggle the CSS class on <body> which switches CSS variables.
-  // ================================================================
   useEffect(() => {
     if (darkMode) {
       document.body.classList.remove('light');
     } else {
       document.body.classList.add('light');
     }
-    // Save the user's preference so it persists on refresh
     localStorage.setItem('gh_darkmode', String(darkMode));
   }, [darkMode]);
 
-  // Toggle between dark and light mode
   function handleThemeToggle() {
     setDarkMode((prev) => !prev);
   }
 
   return (
     <div className="app-wrapper">
-      {/* ---- HEADER ---- */}
       <header className="header">
-        {/* Logo + Title */}
         <div className="header-logo">
-          {/* GitHub Octocat-style SVG icon */}
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.37.6.1.82-.26.82-.57v-2c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4c1.02 0 2.04.14 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.21.69.82.57C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z" />
           </svg>
           <span className="header-title">GitHub <span>Explorer</span></span>
         </div>
 
-        {/* Dark/Light mode toggle button */}
         <button
           id="theme-toggle-btn"
           className="theme-toggle"
@@ -61,7 +37,6 @@ function App() {
           title="Toggle dark/light mode"
         >
           {darkMode ? (
-            // Sun icon for switching to Light Mode
             <>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <circle cx="12" cy="12" r="5" />
@@ -77,7 +52,6 @@ function App() {
               Light Mode
             </>
           ) : (
-            // Moon icon for switching to Dark Mode
             <>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
@@ -88,10 +62,8 @@ function App() {
         </button>
       </header>
 
-      {/* ---- MAIN PAGE ---- */}
       <Home />
 
-      {/* ---- FOOTER ---- */}
       <footer className="footer"></footer>
     </div>
   );

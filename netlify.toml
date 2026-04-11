@@ -1,14 +1,7 @@
-# Netlify build configuration for GitHub Explorer (Vite + React)
-
 [build]
-  # Command Netlify runs to build the project
   command = "npm run build"
-
-  # The folder Netlify serves after build (Vite outputs to /dist)
   publish = "dist"
 
-# Fixes page-not-found errors when navigating directly to a URL
-# (React is a SPA — all routes should fall back to index.html)
 [[redirects]]
   from = "/*"
   to = "/index.html"

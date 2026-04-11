@@ -1,13 +1,3 @@
-// ============================================================
-// helpers.js — Small reusable utility functions
-// ============================================================
-
-/**
- * Formats a large number into a short, readable format.
- * Example: 12400 → "12.4k", 1000000 → "1M"
- * @param {number} num
- * @returns {string}
- */
 export function formatNumber(num) {
   if (!num && num !== 0) return '0';
   if (num >= 1_000_000) return (num / 1_000_000).toFixed(1).replace(/\.0$/, '') + 'M';
@@ -15,12 +5,6 @@ export function formatNumber(num) {
   return String(num);
 }
 
-/**
- * Returns a color hex for a given programming language.
- * Used for the colored dot next to the language name on repo cards.
- * @param {string} language
- * @returns {string} - CSS color value
- */
 export function getLanguageColor(language) {
   const colors = {
     JavaScript: '#f1e05a',
