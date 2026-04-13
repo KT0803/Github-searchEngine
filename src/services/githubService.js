@@ -1,16 +1,10 @@
 const BASE_URL = 'https://api.github.com';
-const TOKEN = "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";
 
 
 export async function fetchUsers(query) {
   const response = await fetch(
-  `${BASE_URL}/search/users?q=${encodeURIComponent(query)}&per_page=20`,
-  {
-    headers: {
-      Authorization: `token ${TOKEN}`
-    }
-  }
-);
+  `${BASE_URL}/search/users?q=${encodeURIComponent(query)}&per_page=20`
+  );
 
   if (!response.ok) {
     if (response.status === 403) {
@@ -25,12 +19,7 @@ export async function fetchUsers(query) {
 
 export async function fetchRepos(username) {
   const response = await fetch(
-  `${BASE_URL}/users/${username}/repos?per_page=100&sort=updated`,
-  {
-    headers: {
-      Authorization: `token ${TOKEN}`
-    }
-  }
+  `${BASE_URL}/users/${username}/repos?per_page=100&sort=updated`
 );
 
   if (!response.ok) {
