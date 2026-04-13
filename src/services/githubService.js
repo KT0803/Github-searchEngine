@@ -4,7 +4,7 @@ const BASE_URL = 'https://api.github.com';
 export async function fetchUsers(query) {
   const response = await fetch(
   `${BASE_URL}/search/users?q=${encodeURIComponent(query)}&per_page=20`
-  );
+);
 
   if (!response.ok) {
     if (response.status === 403) {
