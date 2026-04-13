@@ -1,5 +1,5 @@
 const BASE_URL = 'https://api.github.com';
-const TOKEN = "YOUR_GITHUB_TOKEN";
+const TOKEN = "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";
 
 
 export async function fetchUsers(query) {
